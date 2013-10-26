@@ -128,16 +128,16 @@
             </objects>
             <point key="canvasLocation" x="826" y="64"/>
         </scene>
-        <!--Leave Appeal View Controller - Leave Appeal-->
+        <!--Category List View Controller - Select Category-->
         <scene sceneID="wEs-qe-UDt">
             <objects>
-                <tableViewController id="vu5-1M-HAE" customClass="LeaveAppealViewController" sceneMemberID="viewController">
+                <tableViewController id="vu5-1M-HAE" customClass="CategoryListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="thj-JS-Igb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BhA-Je-okQ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SubcategoryCell" id="BhA-Je-okQ">
                                 <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BhA-Je-okQ" id="jnZ-8J-1Wq">
@@ -154,7 +154,7 @@
                             <outlet property="delegate" destination="vu5-1M-HAE" id="bdI-P2-yGe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Leave Appeal" id="0lD-nX-pes"/>
+                    <navigationItem key="navigationItem" title="Select Category" id="0lD-nX-pes"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYn-bg-Md2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

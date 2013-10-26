@@ -1,5 +1,5 @@
 //
-//  LeaveAppealViewController.h
+//  CategoryListViewController.h
 //  IFProblems
 //
 //  Created by Yuriy Pavlyshak on 26.10.13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LeaveAppealViewController : UITableViewController
+@interface CategoryListViewController : UITableViewController
 
 @end

@@ -10,9 +10,9 @@
 
 @interface ProblemCategory : NSObject
 
-@property (nonatomic) NSInteger categoryID;
+@property (nonatomic) NSNumber *categoryID;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *imageURLString;
-@property (nonatomic, strong) NSArray *subcategories;
+@property (nonatomic, strong) NSArray *subcategories;   // of ProblemSubcategory
 
 @end
