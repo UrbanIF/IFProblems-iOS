@@ -24,6 +24,12 @@
 		3A15B505181BDCAF0028168D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A15B503181BDCAF0028168D /* InfoPlist.strings */; };
 		3A15B507181BDCAF0028168D /* IFProblemsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A15B506181BDCAF0028168D /* IFProblemsTests.m */; };
 		3AD278BF181C09ED004EFCFC /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD278BE181C09ED004EFCFC /* LogInViewController.m */; };
+		3AD278C2181C2846004EFCFC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD278C1181C2846004EFCFC /* MainViewController.m */; };
+		3AD278C5181C2CB9004EFCFC /* LeaveAppealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD278C4181C2CB9004EFCFC /* LeaveAppealViewController.m */; };
+		3AD278C8181C2CCB004EFCFC /* MyAppealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD278C7181C2CCB004EFCFC /* MyAppealsViewController.m */; };
+		3AD278CB181C2CD8004EFCFC /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD278CA181C2CD8004EFCFC /* SettingsViewController.m */; };
+		3AD278CE181C2FAB004EFCFC /* SubmitAppealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD278CD181C2FAB004EFCFC /* SubmitAppealViewController.m */; };
+		3AD278D1181C3187004EFCFC /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD278D0181C3187004EFCFC /* AddressViewController.m */; };
 		D90C722FF1174199A002D91A /* libPods-IFProblems.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0F8C39A11664C6BA5F91BD1 /* libPods-IFProblems.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +65,18 @@
 		3A15B506181BDCAF0028168D /* IFProblemsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IFProblemsTests.m; sourceTree = "<group>"; };
 		3AD278BD181C09ED004EFCFC /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		3AD278BE181C09ED004EFCFC /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		3AD278C0181C2846004EFCFC /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		3AD278C1181C2846004EFCFC /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		3AD278C3181C2CB9004EFCFC /* LeaveAppealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaveAppealViewController.h; sourceTree = "<group>"; };
+		3AD278C4181C2CB9004EFCFC /* LeaveAppealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaveAppealViewController.m; sourceTree = "<group>"; };
+		3AD278C6181C2CCB004EFCFC /* MyAppealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAppealsViewController.h; sourceTree = "<group>"; };
+		3AD278C7181C2CCB004EFCFC /* MyAppealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAppealsViewController.m; sourceTree = "<group>"; };
+		3AD278C9181C2CD8004EFCFC /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		3AD278CA181C2CD8004EFCFC /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		3AD278CC181C2FAB004EFCFC /* SubmitAppealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitAppealViewController.h; sourceTree = "<group>"; };
+		3AD278CD181C2FAB004EFCFC /* SubmitAppealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitAppealViewController.m; sourceTree = "<group>"; };
+		3AD278CF181C3187004EFCFC /* AddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewController.h; sourceTree = "<group>"; };
+		3AD278D0181C3187004EFCFC /* AddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewController.m; sourceTree = "<group>"; };
 		7E1FB26975EF47788E62CB54 /* Pods-IFProblems.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IFProblems.xcconfig"; path = "Pods/Pods-IFProblems.xcconfig"; sourceTree = "<group>"; };
 		F0F8C39A11664C6BA5F91BD1 /* libPods-IFProblems.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IFProblems.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,13 +145,25 @@
 		3A15B4DA181BDCAF0028168D /* IFProblems */ = {
 			isa = PBXGroup;
 			children = (
-				3A15B4E3181BDCAF0028168D /* AppDelegate.h */,
-				3A15B4E4181BDCAF0028168D /* AppDelegate.m */,
 				3A15B4E6181BDCAF0028168D /* Main.storyboard */,
 				3A15B4F2181BDCAF0028168D /* Images.xcassets */,
+				3A15B4E3181BDCAF0028168D /* AppDelegate.h */,
+				3A15B4E4181BDCAF0028168D /* AppDelegate.m */,
 				3A15B4E9181BDCAF0028168D /* IFProblems.xcdatamodeld */,
 				3AD278BD181C09ED004EFCFC /* LogInViewController.h */,
 				3AD278BE181C09ED004EFCFC /* LogInViewController.m */,
+				3AD278C0181C2846004EFCFC /* MainViewController.h */,
+				3AD278C1181C2846004EFCFC /* MainViewController.m */,
+				3AD278C3181C2CB9004EFCFC /* LeaveAppealViewController.h */,
+				3AD278C4181C2CB9004EFCFC /* LeaveAppealViewController.m */,
+				3AD278C6181C2CCB004EFCFC /* MyAppealsViewController.h */,
+				3AD278C7181C2CCB004EFCFC /* MyAppealsViewController.m */,
+				3AD278C9181C2CD8004EFCFC /* SettingsViewController.h */,
+				3AD278CA181C2CD8004EFCFC /* SettingsViewController.m */,
+				3AD278CC181C2FAB004EFCFC /* SubmitAppealViewController.h */,
+				3AD278CD181C2FAB004EFCFC /* SubmitAppealViewController.m */,
+				3AD278CF181C3187004EFCFC /* AddressViewController.h */,
+				3AD278D0181C3187004EFCFC /* AddressViewController.m */,
 			);
 			path = IFProblems;
 			sourceTree = "<group>";
@@ -306,7 +336,13 @@
 				3AD278BF181C09ED004EFCFC /* LogInViewController.m in Sources */,
 				3A15B4EB181BDCAF0028168D /* IFProblems.xcdatamodeld in Sources */,
 				3A15B4E5181BDCAF0028168D /* AppDelegate.m in Sources */,
+				3AD278CB181C2CD8004EFCFC /* SettingsViewController.m in Sources */,
+				3AD278C2181C2846004EFCFC /* MainViewController.m in Sources */,
+				3AD278CE181C2FAB004EFCFC /* SubmitAppealViewController.m in Sources */,
+				3AD278C8181C2CCB004EFCFC /* MyAppealsViewController.m in Sources */,
+				3AD278D1181C3187004EFCFC /* AddressViewController.m in Sources */,
 				3A15B4E1181BDCAF0028168D /* main.m in Sources */,
+				3AD278C5181C2CB9004EFCFC /* LeaveAppealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
