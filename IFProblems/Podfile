@@ -1,0 +1,12 @@
+platform :ios, "6.0"
+
+target "IFProblems" do
+
+pod 'RestKit',	'~> 0.21.0'
+
+end
+
+target "IFProblemsTests" do
+
+end
+

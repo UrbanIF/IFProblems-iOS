@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
+#import "RestKit.h"
 
 @implementation AppDelegate
 
