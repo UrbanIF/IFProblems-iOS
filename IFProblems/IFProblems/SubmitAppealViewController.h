@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProblemCategory.h"
+#import "ProblemSubcategory.h"
 
 @interface SubmitAppealViewController : UIViewController
+
+@property (nonatomic, strong) ProblemCategory *category;
+@property (nonatomic, strong) ProblemSubcategory *subcategory;
 
 @end

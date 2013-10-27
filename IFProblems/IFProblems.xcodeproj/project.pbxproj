@@ -23,6 +23,9 @@
 		3A15B4FD181BDCAF0028168D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A15B4D8181BDCAF0028168D /* CoreData.framework */; };
 		3A15B505181BDCAF0028168D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A15B503181BDCAF0028168D /* InfoPlist.strings */; };
 		3A15B507181BDCAF0028168D /* IFProblemsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A15B506181BDCAF0028168D /* IFProblemsTests.m */; };
+		3A95B12F181CABA7001984DD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A95B12E181CABA7001984DD /* MapKit.framework */; };
+		3A95B131181CABB0001984DD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A95B130181CABB0001984DD /* CoreLocation.framework */; };
+		3A95B133181CB6EA001984DD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A95B132181CB6EA001984DD /* AssetsLibrary.framework */; };
 		3AD278BF181C09ED004EFCFC /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD278BE181C09ED004EFCFC /* LogInViewController.m */; };
 		3AD278C2181C2846004EFCFC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD278C1181C2846004EFCFC /* MainViewController.m */; };
 		3AD278C5181C2CB9004EFCFC /* CategoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD278C4181C2CB9004EFCFC /* CategoryListViewController.m */; };
@@ -67,6 +70,9 @@
 		3A15B502181BDCAF0028168D /* IFProblemsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IFProblemsTests-Info.plist"; sourceTree = "<group>"; };
 		3A15B504181BDCAF0028168D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A15B506181BDCAF0028168D /* IFProblemsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IFProblemsTests.m; sourceTree = "<group>"; };
+		3A95B12E181CABA7001984DD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3A95B130181CABB0001984DD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3A95B132181CB6EA001984DD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		3AD278BD181C09ED004EFCFC /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		3AD278BE181C09ED004EFCFC /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		3AD278C0181C2846004EFCFC /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -98,6 +104,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A95B133181CB6EA001984DD /* AssetsLibrary.framework in Frameworks */,
+				3A95B131181CABB0001984DD /* CoreLocation.framework in Frameworks */,
+				3A95B12F181CABA7001984DD /* MapKit.framework in Frameworks */,
 				3A15B4D5181BDCAF0028168D /* CoreGraphics.framework in Frameworks */,
 				3A15B4D9181BDCAF0028168D /* CoreData.framework in Frameworks */,
 				3A15B4D7181BDCAF0028168D /* UIKit.framework in Frameworks */,
@@ -144,6 +153,9 @@
 		3A15B4D1181BDCAF0028168D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A95B132181CB6EA001984DD /* AssetsLibrary.framework */,
+				3A95B130181CABB0001984DD /* CoreLocation.framework */,
+				3A95B12E181CABA7001984DD /* MapKit.framework */,
 				3A15B4D2181BDCAF0028168D /* Foundation.framework */,
 				3A15B4D4181BDCAF0028168D /* CoreGraphics.framework */,
 				3A15B4D6181BDCAF0028168D /* UIKit.framework */,

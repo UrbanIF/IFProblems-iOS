@@ -11,6 +11,7 @@
 #import "ProblemCategory.h"
 #import "ProblemSubcategory.h"
 #import "Constants.h"
+#import "SubmitAppealViewController.h"
 
 @interface CategoryListViewController ()
 
@@ -25,8 +26,6 @@
     [super viewDidLoad];
     [self loadCategories];
 }
-
-
 
 - (void)loadCategories
 {
@@ -51,11 +50,25 @@
     RKObjectRequestOperation *categoryRequestOperation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[categoryResponseDescriptor]];
     [categoryRequestOperation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         self.categoriesArray = mappingResult.array;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [self.tableView reloadData];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        RKLogInfo(@"Fail: %@", error);
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        RKLogInfo(@"Failed loading categories: %@", error);
     }];
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [categoryRequestOperation start];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"SubcategorySelectedSegue"]) {
+        SubmitAppealViewController *submitAppealViewCotroller = (SubmitAppealViewController *)segue.destinationViewController;
+        NSIndexPath *selectedRowIndexPath = [self.tableView indexPathForSelectedRow];
+        submitAppealViewCotroller.category = self.categoriesArray[selectedRowIndexPath.section];
+        submitAppealViewCotroller.subcategory = submitAppealViewCotroller.category.subcategories[selectedRowIndexPath.row];
+    }
 }
 
 #pragma mark - Table View
