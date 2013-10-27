@@ -10,7 +10,7 @@
 
 @interface ProblemSubcategory : NSObject
 
-@property (nonatomic) NSInteger subcategoryID;
+@property (nonatomic) NSNumber *subcategoryID;
 @property (nonatomic, copy) NSString *title;
 
 

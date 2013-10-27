@@ -9,6 +9,7 @@
 #import <RestKit.h>
 #import "CategoryListViewController.h"
 #import "ProblemCategory.h"
+#import "ProblemSubcategory.h"
 #import "Constants.h"
 
 @interface CategoryListViewController ()
@@ -34,6 +35,12 @@
                                                           @"title": @"title",
                                                           @"image": @"imageURLString"}];
     
+    
+    RKObjectMapping *subcategoryMapping = [RKObjectMapping mappingForClass:[ProblemSubcategory class]];
+    [subcategoryMapping addAttributeMappingsFromDictionary:@{@"id": @"subcategoryID",
+                                                             @"title": @"title"}];
+    
+    [categoryMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"subcategories" toKeyPath:@"subcategories" withMapping:subcategoryMapping]];
     
     RKResponseDescriptor *categoryResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:categoryMapping method:RKRequestMethodGET pathPattern:@"/categories" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
 
@@ -74,7 +81,8 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubcategoryCell" forIndexPath:indexPath];
     ProblemCategory *category = self.categoriesArray[indexPath.section];
-    cell.textLabel.text = category.subcategories[indexPath.row];
+    ProblemSubcategory *subcategory = category.subcategories[indexPath.row];
+    cell.textLabel.text = subcategory.title;
     return cell;
 }
 
