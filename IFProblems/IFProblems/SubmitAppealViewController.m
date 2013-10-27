@@ -124,10 +124,10 @@ NSInteger kSubmitFailureAlertTag = 2;
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:kServiceURLString]];
     [manager addRequestDescriptor:problemSubmitRequestDescriptor];
     [manager addResponseDescriptor:problemSubmitResponseDescriptor];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [manager.router.routeSet addRoute:[RKRoute routeWithClass:[Problem class] pathPattern:@"/api/categories/:categoryID/subcategories/:subcategoryID/problems" method:RKRequestMethodPOST]];
     
-    NSString *path = [NSString stringWithFormat:@"/api/categories/%@/subcategories/%@/problems", problem.categoryID, problem.subcategoryID];
-    [manager postObject:problem path:path parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [manager postObject:problem path:nil parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Your appeal has been submitted" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         alertView.tag = kSubmitSuccessAlertTag;
