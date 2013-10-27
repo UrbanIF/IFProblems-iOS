@@ -8,8 +8,13 @@
 
 #import <RestKit.h>
 #import "SubmitAppealViewController.h"
+#import "Problem.h"
+#import "Constants.h"
 
-@interface SubmitAppealViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+NSInteger kSubmitSuccessAlertTag = 1;
+NSInteger kSubmitFailureAlertTag = 2;
+
+@interface SubmitAppealViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
@@ -92,7 +97,39 @@
 
 - (IBAction)submitProblem:(UIBarButtonItem *)sender
 {
+    RKObjectMapping *problemSubmitRequestMapping = [RKObjectMapping requestMapping];
+    [problemSubmitRequestMapping addAttributeMappingsFromDictionary:@{@"title": @"title",
+                                                                      @"categoryID": @"category_id",
+                                                                      @"subcategoryID": @"subcategory_id",
+                                                                      @"address": @"address"}];
     
+    RKRequestDescriptor *problemSubmitRequestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:problemSubmitRequestMapping objectClass:[Problem class] rootKeyPath:nil method:RKRequestMethodPOST];
+    
+
+    RKObjectMapping *problemSubmitResponseMapping = [problemSubmitRequestMapping inverseMapping];
+    RKResponseDescriptor *problemSubmitResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:problemSubmitResponseMapping method:RKRequestMethodPOST pathPattern:@"problems" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    Problem *problem = [[Problem alloc] init];
+    problem.categoryID = self.category.categoryID;
+    problem.subcategoryID = self.subcategory.subcategoryID;
+    problem.title = self.commentTextView.text;
+    problem.address = self.addressTextField.text;
+    
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:kServiceURLString]];
+    [manager addRequestDescriptor:problemSubmitRequestDescriptor];
+    [manager addResponseDescriptor:problemSubmitResponseDescriptor];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [manager postObject:problem path:@"/problems" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Your appeal has been submitted" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        alertView.tag = kSubmitSuccessAlertTag;
+        [alertView show];
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error while submitting appeal" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        alertView.tag = kSubmitFailureAlertTag;
+        [alertView show];
+    }];
 }
 
 #pragma mark - UIActionSheetDelegate
@@ -119,6 +156,14 @@
     self.photoImageView.hidden = NO;
     self.addPhotoButton.hidden = YES;
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == kSubmitSuccessAlertTag) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end

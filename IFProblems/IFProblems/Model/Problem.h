@@ -10,7 +10,9 @@
 
 @interface Problem : NSObject
 
-@property (nonatomic) NSInteger problemID;
+@property (nonatomic) NSNumber *problemID;
+@property (nonatomic, strong) NSNumber *categoryID;
+@property (nonatomic, strong) NSNumber *subcategoryID;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *photoURLString;
 @property (nonatomic, copy) NSString *status;
