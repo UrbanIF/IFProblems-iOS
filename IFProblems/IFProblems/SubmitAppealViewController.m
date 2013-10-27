@@ -98,28 +98,36 @@ NSInteger kSubmitFailureAlertTag = 2;
 - (IBAction)submitProblem:(UIBarButtonItem *)sender
 {
     RKObjectMapping *problemSubmitRequestMapping = [RKObjectMapping requestMapping];
-    [problemSubmitRequestMapping addAttributeMappingsFromDictionary:@{@"title": @"title",
-                                                                      @"categoryID": @"category_id",
-                                                                      @"subcategoryID": @"subcategory_id",
-                                                                      @"address": @"address"}];
+    NSDictionary *requestAttributeMappingsDictionary = @{@"title": @"title",
+                                                         @"categoryID": @"category_id",
+                                                         @"subcategoryID": @"subcategory_id",
+                                                         @"address": @"address",
+                                                         @"problemID": @"id",
+                                                         @"status": @"status"};
+    [problemSubmitRequestMapping addAttributeMappingsFromDictionary:requestAttributeMappingsDictionary];
     
     RKRequestDescriptor *problemSubmitRequestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:problemSubmitRequestMapping objectClass:[Problem class] rootKeyPath:nil method:RKRequestMethodPOST];
     
 
-    RKObjectMapping *problemSubmitResponseMapping = [problemSubmitRequestMapping inverseMapping];
-    RKResponseDescriptor *problemSubmitResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:problemSubmitResponseMapping method:RKRequestMethodPOST pathPattern:@"problems" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
-    
     Problem *problem = [[Problem alloc] init];
     problem.categoryID = self.category.categoryID;
     problem.subcategoryID = self.subcategory.subcategoryID;
     problem.title = self.commentTextView.text;
     problem.address = self.addressTextField.text;
     
+    RKObjectMapping *problemSubmitResponseMapping = [RKObjectMapping mappingForClass:[Problem class]];
+    NSMutableDictionary *responseAttributeMappingsDictionary = [NSMutableDictionary dictionaryWithObjects:[requestAttributeMappingsDictionary allKeys] forKeys:[requestAttributeMappingsDictionary allValues]];
+    
+    [problemSubmitResponseMapping addAttributeMappingsFromDictionary:responseAttributeMappingsDictionary];
+    RKResponseDescriptor *problemSubmitResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:problemSubmitResponseMapping method:RKRequestMethodPOST pathPattern:nil keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:kServiceURLString]];
     [manager addRequestDescriptor:problemSubmitRequestDescriptor];
     [manager addResponseDescriptor:problemSubmitResponseDescriptor];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    [manager postObject:problem path:@"/problems" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+    
+    NSString *path = [NSString stringWithFormat:@"/api/categories/%@/subcategories/%@/problems", problem.categoryID, problem.subcategoryID];
+    [manager postObject:problem path:path parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Your appeal has been submitted" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         alertView.tag = kSubmitSuccessAlertTag;

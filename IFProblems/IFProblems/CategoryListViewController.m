@@ -41,10 +41,10 @@
     
     [categoryMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"subcategories" toKeyPath:@"subcategories" withMapping:subcategoryMapping]];
     
-    RKResponseDescriptor *categoryResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:categoryMapping method:RKRequestMethodGET pathPattern:@"/categories" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    RKResponseDescriptor *categoryResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:categoryMapping method:RKRequestMethodGET pathPattern:@"/api/categories" keyPath:nil statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
 
     NSURLComponents *urlComponents = [NSURLComponents componentsWithString:kServiceURLString];
-    urlComponents.path = @"/categories";
+    urlComponents.path = @"/api/categories";
     NSURLRequest *request = [NSURLRequest requestWithURL:[urlComponents URL]];
     
     RKObjectRequestOperation *categoryRequestOperation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[categoryResponseDescriptor]];
@@ -54,7 +54,8 @@
         [self.tableView reloadData];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        RKLogInfo(@"Failed loading categories: %@", error);
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Unable to fetch categories" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
     }];
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;

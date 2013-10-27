@@ -10,15 +10,15 @@
 
 @interface Problem : NSObject
 
-@property (nonatomic) NSNumber *problemID;
-@property (nonatomic, strong) NSNumber *categoryID;
-@property (nonatomic, strong) NSNumber *subcategoryID;
+@property (nonatomic, copy) NSString *problemID;
+@property (nonatomic, copy) NSString *categoryID;
+@property (nonatomic, copy) NSString *subcategoryID;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *photoURLString;
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, copy) NSString *address;
-@property (nonatomic) double latitude;
-@property (nonatomic) double longitude;
+@property (nonatomic, strong) NSNumber *latitude;
+@property (nonatomic, strong) NSNumber *longitude;
 
 
 @end

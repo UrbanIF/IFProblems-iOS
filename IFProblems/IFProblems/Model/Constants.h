@@ -9,9 +9,3 @@
 #import <Foundation/Foundation.h>
 
 extern NSString * const kServiceURLString;
-
-@interface Constants : NSObject
-
-+ (NSURL *)serviceURL;
-
-@end

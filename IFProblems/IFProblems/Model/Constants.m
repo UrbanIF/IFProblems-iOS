@@ -8,13 +8,4 @@
 
 #import "Constants.h"
 
-NSString * const kServiceURLString = @"http://problems.apiary.io/";
-
-@implementation Constants
-
-+ (NSURL *)serviceURL
-{
-    return [[NSURL alloc] initWithString:kServiceURLString];
-}
-
-@end
+NSString * const kServiceURLString = @"http://murmuring-earth-1002.herokuapp.com/"; //@"http://problems.apiary.io/";
